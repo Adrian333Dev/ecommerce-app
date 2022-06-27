@@ -1,14 +1,16 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
-import theme from '../styles/theme/theme';
 import createEmotionCache from '../utility/createEmotionCache';
+import { useTheme } from '@mui/material';
+
 
 export default class MyDocument extends Document {
+	// TODO: content={theme.palette.primary.main}
 	render() {
 		return (
 			<Html lang='en'>
 				<Head>
-					<meta name='theme-color' content={theme.palette.primary.main} />
+					<meta name='theme-color'  />
 					<link rel='shortcut icon' href='/static/favicon.ico' />
 					<link
 						rel='stylesheet'
