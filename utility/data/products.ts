@@ -5,12 +5,6 @@ import { colors } from './specs';
 
 export const products: any = [];
 
-// ! 1. iphone-13-pro
-// ! 2. iphone-13
-// ! 3. iphone-se
-// ! 4. iphone-12
-// ! 5. iphone-11
-
 // ! 6. ipad-pro
 // ! 7. ipad-air
 // ! 8. ipad
@@ -36,9 +30,6 @@ export const products: any = [];
 // ! 24. hp-pavilion-aero
 // ! 25. hp-spectre-x360
 
-// ! 26. galaxy-a53-5g
-// ! 27. galaxy-a03s
-
 // ! 28. boat-watch-wave-pro
 
 // ! 29. galaxy-tab-08
@@ -49,11 +40,15 @@ export const phones: IPhone[] = [
 	{
 		id: 1,
 		name: 'iPhone 13 Pro',
-		price: 999,
+		cost: {
+			price: 1399,
+			currency: 'USD',
+		},
 		discount: 0,
 		description: descriptions['iphone-13-pro'],
 		image: images['iphone-13-pro'],
 		category: 'smartphone',
+		stock: 10,
 		gallery: galleries['iphone-13-pro'],
 		rating: 4.5,
 		brand: 'Apple',
@@ -80,11 +75,15 @@ export const phones: IPhone[] = [
 	{
 		id: 2,
 		name: 'iPhone 13',
-		price: 799,
+		cost: {
+			price: 1299,
+			currency: 'USD',
+		},
 		discount: 0,
 		description: descriptions['iphone-13'],
 		image: images['iphone-13'],
 		category: 'smartphone',
+		stock: 10,
 		gallery: galleries['iphone-13'],
 		rating: 4.5,
 		brand: 'Apple',
@@ -112,11 +111,15 @@ export const phones: IPhone[] = [
 	{
 		id: 3,
 		name: 'iPhone SE',
-		price: 699,
+		cost: {
+			price: 799,
+			currency: 'USD',
+		},
 		discount: 0,
 		description: descriptions['iphone-se'],
 		image: images['iphone-se'],
 		category: 'smartphone',
+		stock: 10,
 		gallery: galleries['iphone-se'],
 		rating: 4.5,
 		brand: 'Apple',
@@ -130,22 +133,22 @@ export const phones: IPhone[] = [
 		gpu: '4-core',
 		color: 'Red',
 		variations: {
-			colors: [
-				colors['red'],
-				colors['starlight'],
-				colors['midnight'],
-			],
-			storage: [64,128, 256],
-		}
+			colors: [colors['red'], colors['starlight'], colors['midnight']],
+			storage: [64, 128, 256],
+		},
 	},
 	{
 		id: 4,
 		name: 'iPhone 12',
-		price: 699,
+		cost: {
+			price: 999,
+			currency: 'USD',
+		},
 		discount: 0,
 		description: descriptions['iphone-12'],
 		image: images['iphone-12'],
 		category: 'smartphone',
+		stock: 10,
 		gallery: galleries['iphone-12'],
 		rating: 4.5,
 		brand: 'Apple',
@@ -158,41 +161,115 @@ export const phones: IPhone[] = [
 		battery: 3095,
 		gpu: '5-core',
 		color: 'Red',
+		variations: {
+			colors: [
+				colors['green'],
+				colors['purple'],
+				colors['blue'],
+				colors['white'],
+				colors['black'],
+				colors['red'],
+			],
+			storage: [64, 128, 256],
+		},
 	},
 	{
 		id: 5,
 		name: 'iPhone 11',
-		price: 599,
+		cost: {
+			price: 899,
+			currency: 'USD',
+		},
 		discount: 0,
 		description: descriptions['iphone-11'],
 		image: images['iphone-11'],
 		category: 'smartphone',
+		stock: 10,
 		gallery: galleries['iphone-11'],
 		rating: 4.5,
 		brand: 'Apple',
+		screenSize: 6.1,
+		screenResolution: '2778x1284',
+		ram: 4,
+		storage: 128,
+		camera: 12,
+		cpu: 'Apple A15 Bionic',
+		battery: 3095,
+		gpu: '5-core',
+		color: 'Red',
+		variations: {
+			colors: [
+				colors['green'],
+				colors['purple'],
+				colors['white'],
+				colors['black'],
+				colors['red'],
+				colors['yellow'],
+			],
+			storage: [64, 128, 256],
+		},
 	},
 	{
 		id: 6,
 		name: 'Samsung Galaxy A53 5G',
-		price: 499,
+		cost: {
+			price: 599,
+			currency: 'USD',
+		},
 		discount: 0,
 		description: descriptions['galaxy-a53-5g'],
 		image: images['galaxy-a53-5g'],
 		category: 'smartphone',
+		stock: 10,
 		gallery: galleries['galaxy-a53-5g'],
 		rating: 4.5,
 		brand: 'Samsung',
+		screenSize: 6.1,
+		screenResolution: '2778x1284',
+		ram: 4,
+		storage: 128,
+		camera: 12,
+		cpu: 'Apple A15 Bionic',
+		battery: 3095,
+		gpu: '5-core',
+		color: 'Red',
+		variations: {
+			colors: [
+				colors['peach'],
+				colors['blue'],
+				colors['black'],
+				colors['white'],
+			],
+			storage: [32, 64, 128, 256],
+		},
 	},
 	{
 		id: 7,
 		name: 'Samsung Galaxy A03s',
-		price: 499,
+		cost: {
+			price: 399,
+			currency: 'USD',
+		},
 		discount: 0,
 		description: descriptions['galaxy-a03s'],
 		image: images['galaxy-a03s'],
 		category: 'smartphone',
+		stock: 10,
 		gallery: galleries['galaxy-a03s'],
 		rating: 4.5,
 		brand: 'Samsung',
+		screenSize: 6.1,
+		screenResolution: '2778x1284',
+		ram: 4,
+		storage: 64,
+		camera: 12,
+		cpu: 'Apple A15 Bionic',
+		battery: 3095,
+		gpu: '5-core',
+		color: 'Red',
+		variations: {
+			colors: [colors['blue'], colors['black'], colors['white']],
+			storage: [32, 64],
+		},
 	},
 ];

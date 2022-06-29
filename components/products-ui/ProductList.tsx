@@ -9,19 +9,6 @@ const ProductList: FC = () => {
 
 	return (
 		<Grid container spacing={2}>
-			{/* {data.products.map((prod: any, i: number) => (
-				<Grid
-					item
-					xs={12}
-					sm={6}
-					md={4}
-					lg={3}
-					key={i}
-					sx={{ display: 'flex' }}
-				>
-					<ProductItem prod={prod} />
-				</Grid>
-			))} */}
 		</Grid>
 	);
 };

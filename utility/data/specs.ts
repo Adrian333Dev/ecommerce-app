@@ -43,4 +43,24 @@ export const colors: any = {
 		name: 'Green',
 		hex: '#00A852',
 	},
+	purple: {
+		name: 'Purple',
+		hex: '#bbb2e9',
+	},
+	white: {
+		name: 'White',
+		hex: '#FFFFFF',
+	},
+	black: {
+		name: 'Black',
+		hex: '#000000',
+	},
+	yellow: {
+		name: 'Yellow',
+		hex: '#FFE983',
+	},
+	'peach': {
+		name: 'Peach',
+		hex: '#ffe5b4',
+	},
 };

@@ -16,6 +16,7 @@ const Navbar: FC = () => {
 				<ButtonGroup size='large'>
 					<Button onClick={() => router.push('/cart')}>Cart</Button>
 					<Button onClick={() => router.push('/sign-in')}>Sign In</Button>
+					<Button onClick={() => router.push('/sign-up')}>Sign Up</Button>
 				</ButtonGroup>
 			</Toolbar>
 		</AppBar>

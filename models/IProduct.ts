@@ -1,14 +1,18 @@
 export interface IProduct {
 	id: number | string;
 	name: string;
-	price: number;
-	discount?: number;
+	cost: {
+		price: number;
+		currency: string;
+	}
+	discount: number;
 	description: string;
 	image: string;
 	category: string;
 	gallery: string[];
-	rating?: number;
+	rating: number;
 	brand: string;
+	stock: number;
 	// TODO: variants in future
 	variations?: any;
 }

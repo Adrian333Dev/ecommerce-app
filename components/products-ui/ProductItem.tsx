@@ -1,46 +1,66 @@
 import { FC } from 'react';
-import { Box, Button, Paper, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
+import {
+	Box,
+	Button,
+	Card,
+	CardActions,
+	CardContent,
+	CardMedia,
+	Checkbox,
+	Typography,
+} from '@mui/material';
+import { pink } from '@mui/material/colors';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 
-const ProductItem: FC<any> = ({ prod: { image, name, price, slug } }) => {
-	const router = useRouter();
+import { ILaptop, IPhone, ITablet, IWatch } from '../../models/IProduct';
+
+interface ProductItemProps {
+	product: IPhone | ITablet | ILaptop | IWatch;
+}
+
+const ProductItem: FC<ProductItemProps> = ({
+	product: {
+		name,
+		image,
+		cost: { price, currency },
+	},
+}) => {
 	return (
-		<Paper
-			sx={{
-				'&:hover': {
-					cursor: 'pointer',
-				},
-				display: 'flex',
-				flexDirection: 'column',
-				borderRadius: 1,
-			}}
-		>
-			<Box
+		<Card sx={{ maxWidth: 350, minWidth: 280, position: 'relative' }}>
+			<Checkbox
+				icon={<FavoriteBorder fontSize='large' />}
+				checkedIcon={
+					<Favorite
+						fontSize='large'
+						sx={{
+							color: pink.A400,
+						}}
+					/>
+				}
+				sx={{
+					position: 'absolute',
+					top: 5,
+					right: 5,
+				}}
+			/>
+			<CardMedia
+				component='img'
+				image={image}
+				alt={name}
 				sx={{
 					aspectRatio: '1 / 1',
-					overflow: 'hidden',
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center',
-					'& img': {
-						width: '100%',
-					},
 				}}
-			>
-				<img
-					src={image}
-					alt={name}
-					onClick={() => router.push(`/product/${slug}`)}
-				/>
-			</Box>
-			<Box p={1}>
-				<Typography>{name}</Typography>
-				<Typography>{price}</Typography>
-				<Button variant='contained' color='primary'>
-					Add to Cart
-				</Button>
-			</Box>
-		</Paper>
+			/>
+			<CardContent>
+				<Typography variant='h6' mb={1}>
+					{name}
+				</Typography>
+				<Typography fontSize={19}>
+					{price} {currency}
+				</Typography>
+			</CardContent>
+		</Card>
 	);
 };
 
