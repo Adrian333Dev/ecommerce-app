@@ -3,8 +3,6 @@ import { galleries, images } from './galleries';
 import { descriptions } from './descriptions';
 import { colors } from './specs';
 
-export const products: any = [];
-
 // ! 6. ipad-pro
 // ! 7. ipad-air
 // ! 8. ipad
@@ -271,5 +269,12 @@ export const phones: IPhone[] = [
 			colors: [colors['blue'], colors['black'], colors['white']],
 			storage: [32, 64],
 		},
+	},
+];
+
+export const products: any[] = [
+	{
+		title: 'smartphones',
+		items: phones,
 	},
 ];
