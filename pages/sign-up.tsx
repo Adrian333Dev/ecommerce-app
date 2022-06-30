@@ -1,31 +1,55 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import {
 	Box,
 	Container,
 	Avatar,
 	Typography,
 	TextField,
-	FormControlLabel,
-	Checkbox,
 	Button,
 	Grid,
 	Link,
-	createTheme,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-
 import { Layout } from '../components/exports';
-import { Copyright } from './sign-in';
 
+import {
+	createAuthUserWithEmailAndPassword,
+	createUserDocumentFromAuth,
+} from '../utility/firebase/firebase';
+
+const initialData = {
+	displayName: '',
+	email: '',
+	password: '',
+	confirmPassword: '',
+};
 
 const SignUp: FC = () => {
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const [data, setData] = useState(initialData);
+	const { displayName, email, password, confirmPassword } = data;
+
+	const resetData = () => {
+		setData(initialData);
+	};
+
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const data = new FormData(event.currentTarget);
-		console.log({
-			email: data.get('email'),
-			password: data.get('password'),
-		});
+		if (password !== confirmPassword) {
+			alert('Passwords do not match');
+			return;
+		}
+		try {
+			const res = await createAuthUserWithEmailAndPassword(email, password);
+			await createUserDocumentFromAuth(res?.user, { displayName });
+			resetData();
+		} catch (error: any) {
+			console.error('Error creating user', error.message);
+		}
+		resetData();
+	};
+
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setData({ ...data, [event.target.name]: event.target.value });
 	};
 
 	return (
@@ -54,35 +78,27 @@ const SignUp: FC = () => {
 								sx={{ mt: 3 }}
 							>
 								<Grid container spacing={2}>
-									<Grid item xs={12} sm={6}>
+									<Grid item xs={12}>
 										<TextField
 											autoComplete='given-name'
-											name='firstName'
+											name='displayName'
 											required
 											fullWidth
-											id='firstName'
-											label='First Name'
+											label='Display Name'
 											autoFocus
-										/>
-									</Grid>
-									<Grid item xs={12} sm={6}>
-										<TextField
-											required
-											fullWidth
-											id='lastName'
-											label='Last Name'
-											name='lastName'
-											autoComplete='family-name'
+											onChange={handleChange}
+											value={displayName}
 										/>
 									</Grid>
 									<Grid item xs={12}>
 										<TextField
 											required
 											fullWidth
-											id='email'
 											label='Email Address'
 											name='email'
 											autoComplete='email'
+											onChange={handleChange}
+											value={email}
 										/>
 									</Grid>
 									<Grid item xs={12}>
@@ -92,8 +108,21 @@ const SignUp: FC = () => {
 											name='password'
 											label='Password'
 											type='password'
-											id='password'
 											autoComplete='new-password'
+											onChange={handleChange}
+											value={password}
+										/>
+									</Grid>
+									<Grid item xs={12}>
+										<TextField
+											required
+											fullWidth
+											name='confirmPassword'
+											label='Confirm Password'
+											type='password'
+											autoComplete='new-password'
+											onChange={handleChange}
+											value={confirmPassword}
 										/>
 									</Grid>
 								</Grid>
@@ -114,7 +143,6 @@ const SignUp: FC = () => {
 								</Grid>
 							</Box>
 						</Box>
-						<Copyright sx={{ mt: 5 }} />
 					</Container>
 				</Layout>
 			</>

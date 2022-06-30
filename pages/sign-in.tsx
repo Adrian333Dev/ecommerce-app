@@ -1,12 +1,10 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import {
 	Box,
 	Container,
 	Avatar,
 	Typography,
 	TextField,
-	FormControlLabel,
-	Checkbox,
 	Button,
 	Grid,
 	Link,
@@ -16,36 +14,27 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Layout } from '../components/exports';
 import {
 	signInWithGooglePopup,
-	createUserDoc,
+	createUserDocumentFromAuth,
+	signInAuthUserWithEmailAndPassword,
 } from '../utility/firebase/firebase';
 
-export const Copyright = (props: any) => {
-	return (
-		<Typography
-			variant='body2'
-			color='text.secondary'
-			align='center'
-			{...props}
-		>
-			{'Copyright © '}
-			<Link color='inherit' href='https://mui.com/'>
-				Your Website
-			</Link>{' '}
-			{new Date().getFullYear()}
-			{'.'}
-		</Typography>
-	);
-};
-
 const SignIn: FC = () => {
-	const logGoogleUser = async () => {
-		const { user } = await signInWithGooglePopup();	
-		const userDoc = await createUserDoc(user);
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+
+	const signInWithGoogle = async () => {
+		const { user } = await signInWithGooglePopup();
+		await createUserDocumentFromAuth(user);
 	};
 
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		logGoogleUser();
+		try {
+			const res = await signInAuthUserWithEmailAndPassword(email, password);
+			console.log(res);
+		} catch (error: any) {
+			console.error('Error signing in', error?.message);
+		}
 	};
 
 	return (
@@ -81,6 +70,8 @@ const SignIn: FC = () => {
 								name='email'
 								autoComplete='email'
 								autoFocus
+								value={email}
+								onChange={(event) => setEmail(event.target.value)}
 							/>
 							<TextField
 								margin='normal'
@@ -91,10 +82,8 @@ const SignIn: FC = () => {
 								type='password'
 								id='password'
 								autoComplete='current-password'
-							/>
-							<FormControlLabel
-								control={<Checkbox value='remember' color='primary' />}
-								label='Remember me'
+								value={password}
+								onChange={(event) => setPassword(event.target.value)}
 							/>
 							<Button
 								type='submit'
