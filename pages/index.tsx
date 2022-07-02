@@ -19,7 +19,10 @@ const Home: NextPage = () => {
 	return (
 		<>
 			<Layout title='Home Page'>
-				<SlidingProductList />
+				<SlidingProductList title="Smartphones"/>
+				<SlidingProductList title="Smartphones"/>
+				<SlidingProductList title="Smartphones"/>
+				<SlidingProductList title="Smartphones"/>
 			</Layout>
 		</>
 	);

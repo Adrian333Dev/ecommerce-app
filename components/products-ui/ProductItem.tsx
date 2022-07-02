@@ -1,66 +1,88 @@
 import { FC } from 'react';
-import {
-	Box,
-	Button,
-	Card,
-	CardActions,
-	CardContent,
-	CardMedia,
-	Checkbox,
-	Typography,
-} from '@mui/material';
+import { Box, Checkbox, Rating, Typography, IconButton } from '@mui/material';
 import { pink } from '@mui/material/colors';
+
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 
 import { ILaptop, IPhone, ITablet, IWatch } from '../../models/IProduct';
+import {
+	CardBody,
+	Content,
+	ImgContainer,
+	StyledCard,
+} from '../styled/product-item';
+import { useRouter } from 'next/router';
 
 interface ProductItemProps {
 	product: IPhone | ITablet | ILaptop | IWatch;
 }
 
+export const FavoriteButton: FC = () => {
+	return (
+		<Checkbox
+			icon={<FavoriteBorder fontSize='large' />}
+			checkedIcon={
+				<Favorite
+					fontSize='large'
+					sx={{
+						color: pink.A400,
+					}}
+				/>
+			}
+			sx={{
+				position: 'absolute',
+				top: 5,
+				right: 5,
+				zIndex: 1,
+			}}
+		/>
+	);
+};
+
 const ProductItem: FC<ProductItemProps> = ({
 	product: {
 		name,
 		image,
+		slug,
 		cost: { price, currency },
 	},
 }) => {
+	const router = useRouter();
+
+	const route = () => router.push(`/product/${slug}`);
+
 	return (
-		<Card sx={{ maxWidth: 350, minWidth: 280, position: 'relative' }}>
-			<Checkbox
-				icon={<FavoriteBorder fontSize='large' />}
-				checkedIcon={
-					<Favorite
-						fontSize='large'
-						sx={{
-							color: pink.A400,
-						}}
-					/>
-				}
-				sx={{
-					position: 'absolute',
-					top: 5,
-					right: 5,
-				}}
-			/>
-			<CardMedia
-				component='img'
-				image={image}
-				alt={name}
-				sx={{
-					aspectRatio: '1 / 1',
-				}}
-			/>
-			<CardContent>
-				<Typography variant='h6' mb={1}>
-					{name}
-				</Typography>
-				<Typography fontSize={19}>
-					{price} {currency}
-				</Typography>
-			</CardContent>
-		</Card>
+		<StyledCard>
+				<CardBody>
+					<FavoriteButton />
+					<ImgContainer onClick={route}>
+						<img src={image} alt={name} />
+					</ImgContainer>
+					<Content>
+						<Typography fontSize={17} onClick={route}>
+							{name}
+						</Typography>
+						<Rating name='read-only' value={0} readOnly size='small' />
+						<Box sx={{ flexGrow: 1 }} />
+						<Box
+							sx={{
+								display: 'flex',
+								justifyContent: 'space-between',
+								alignItems: 'center',
+							}}
+						>
+							<Typography fontSize={15}>
+								{price} {currency}
+							</Typography>
+							<IconButton className='btn-type'>
+								<AddShoppingCartOutlinedIcon />
+							</IconButton>
+						</Box>
+					</Content>
+				</CardBody>
+		</StyledCard>
 	);
 };
 

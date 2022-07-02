@@ -14,7 +14,7 @@ const Layout: FC<any> = ({ children, title }) => {
 			</Head>
 			<Navbar />
 			<Container
-				sx={{ minHeight: '100vh', paddingTop: '5rem', paddingBottom: '2rem' }}
+				sx={{ minHeight: '100vh', paddingTop: '6rem', paddingBottom: '2rem' }}
 			>
 				{children}
 			</Container>

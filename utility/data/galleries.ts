@@ -253,19 +253,18 @@ export const galleries: any = {
 
 export const images = {
 	'iphone-13-pro':
-		'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone13pro-202203?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1644989935267',
+		'https://m.media-amazon.com/images/I/610xvgzVUDL._AC_SL1500_.jpg',
 
 	'iphone-13':
-		'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone13-202203?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1644989935267',
+		'https://m.media-amazon.com/images/I/61BUt5ZErdL._AC_SL1500_.jpg',
 
 	'iphone-se':
-		'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphonese-202203?wid=680&hei=528&fmt=jpeg&qlt=90&.v=1646415838921',
+		'https://m.media-amazon.com/images/I/81K+adaNRiL._AC_SL1500_.jpg',
 
 	'iphone-12':
-		'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone12purple-202109?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1646335268265',
+		'https://m.media-amazon.com/images/I/7117DN7UkKL._AC_SL1500_.jpg',
 
-	'iphone-11':
-		'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone-11-202108?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1646502984732',
+	'iphone-11': 'https://m.media-amazon.com/images/I/31PpUfTCiFL._AC_.jpg',
 
 	'ipad-pro':
 		'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-pro-202108?wid=800&hei=1000&fmt=p-jpg&qlt=95&.v=1627413382000',
@@ -327,10 +326,10 @@ export const images = {
 		'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08184667.png?imwidth=270&imdensity=1',
 
 	'galaxy-a53-5g':
-		'https://image-us.samsung.com/SamsungUS/home/mobile/phones/pdp/galaxy-a53-5g/gallery/SM-A536VZK_A53_1.jpg?$product-details-jpg$',
+		'https://m.media-amazon.com/images/I/71HN4P-pd5L._AC_SL1223_.jpg',
 
 	'galaxy-a03s':
-		'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-a037gzkneua/gallery/uk-galaxy-a03s-a037g-sm-a037gzkneua-thumb-505689452?$86_56_PNG$',
+		'https://m.media-amazon.com/images/I/61Dy9hZJ4ML._AC_SL1200_.jpg',
 
 	'boat-watch-wave-pro':
 		'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main1_0ae2597d-dee4-42fd-9a18-eb4ae0b3bc43_600x.png?v=1647765304',
