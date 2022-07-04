@@ -4,22 +4,30 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import { phones } from '../../utility/data/products';
 import ProductItem from './ProductItem';
+import {
+	IHeadphone,
+	ILaptop,
+	IPhone,
+	ITablet,
+	IWatch,
+} from '../../models/IProduct';
 
 interface Props {
 	title: string;
+	products: IPhone[] | ILaptop[] | ITablet[] | IHeadphone[] | IWatch[];
 }
 
-const Products: FC = () => {
-	return (
-		<>
-			{phones.map((phone) => (
-				<ProductItem key={phone.id} product={phone} />
-			))}
-		</>
-	);
-};
+const SlidingProductList: FC<Props> = ({ products, title }) => {
+	const Products: FC = () => {
+		return (
+			<>
+				{products.map((prod) => (
+					<ProductItem key={prod.id} product={prod} />
+				))}
+			</>
+		);
+	};
 
-const SlidingProductList: FC<Props> = ({ title }) => {
 	return (
 		<>
 			<Box

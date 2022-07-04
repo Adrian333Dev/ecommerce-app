@@ -8,21 +8,29 @@ import {
 	getCategoriesAndDocuments,
 } from '../utility/firebase/firebase';
 
+import {
+	phones,
+	tablets,
+	headphones,
+	laptops,
+	watches,
+} from '../utility/data/products';
+
 const Home: NextPage = () => {
 	useEffect(() => {
 		const getProducts = async () => {
 			const categories = await getCategoriesAndDocuments();
-			console.log(categories);
 		};
 		getProducts();
 	}, []);
 	return (
 		<>
 			<Layout title='Home Page'>
-				<SlidingProductList title="Smartphones"/>
-				<SlidingProductList title="Smartphones"/>
-				<SlidingProductList title="Smartphones"/>
-				<SlidingProductList title="Smartphones"/>
+				<SlidingProductList products={phones} title='Smartphones' />
+				<SlidingProductList products={tablets} title='Tablets' />
+				<SlidingProductList products={headphones} title='Headphones' />
+				<SlidingProductList products={laptops} title='Laptops' />
+				<SlidingProductList products={watches} title='Watches' />
 			</Layout>
 		</>
 	);

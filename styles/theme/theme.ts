@@ -25,6 +25,13 @@ export const components = {
 					borderRadius: '5px',
 				},
 			},
+			body: {
+				'& img': {
+					maxWidth: '100%',
+					height: 'auto',
+					borderRadius: '5px',
+				},
+			},
 		},
 	},
 };

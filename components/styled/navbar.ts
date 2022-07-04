@@ -6,6 +6,7 @@ export const MainNav = styled(Box)(({ theme }) => ({
 	justifyContent: 'space-between',
 	width: '100%',
 	paddingTop: '0.5rem',
+	paddingBottom: '0.2rem',
 }));
 
 export const SearchbarWrapper = styled(Box)(({ theme }) => ({
@@ -30,4 +31,12 @@ export const SearchButton = styled(Button)(({ theme }) => ({
 	paddingInline: 0,
 	borderTopLeftRadius: 0,
 	borderBottomLeftRadius: 0,
+}));
+
+export const CategoryNavbarWrapper = styled(Box)(({ theme }) => ({
+	backgroundColor: 'rgba(0, 0, 0, 0.5)',
+	width: '100vw',
+	display: 'flex',
+	justifyContent: 'center',
+	paddingBlock: '0.25rem',
 }));

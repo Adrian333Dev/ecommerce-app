@@ -7,7 +7,6 @@ import {
 	Toolbar,
 	useScrollTrigger,
 	IconButton,
-	InputBase,
 } from '@mui/material';
 
 // ! ICONS
@@ -17,7 +16,13 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 import { useRouter } from 'next/router';
-import { MainNav, SearchbarWrapper, SearchButton, SearchInput } from '../styled/navbar';
+import {
+	CategoryNavbarWrapper,
+	MainNav,
+	SearchbarWrapper,
+	SearchButton,
+	SearchInput,
+} from '../styled/navbar';
 
 const categories = [
 	'Smartphones',
@@ -45,7 +50,11 @@ export const CategoryNavbar: FC = () => {
 	return (
 		<Box>
 			{categories.map((category: string, i: number) => {
-				return <Button key={i}>{category}</Button>;
+				return (
+					<Button key={i} size='small'>
+						{category}
+					</Button>
+				);
 			})}
 		</Box>
 	);
@@ -95,9 +104,9 @@ const Navbar: FC = () => {
 							<SearchBar />
 							<MenuIcons />
 						</MainNav>
-						<Box>
+						<CategoryNavbarWrapper>
 							<CategoryNavbar />
-						</Box>
+						</CategoryNavbarWrapper>
 					</Toolbar>
 				</AppBar>
 			</HideOnScroll>

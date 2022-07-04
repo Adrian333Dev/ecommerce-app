@@ -1,3 +1,8 @@
+export interface IColor {
+	name: string;
+	hex: string;
+}
+
 export const colors: any = {
 	'alpine-green': {
 		name: 'Alpine Green',
@@ -59,7 +64,7 @@ export const colors: any = {
 		name: 'Yellow',
 		hex: '#FFE983',
 	},
-	'peach': {
+	peach: {
 		name: 'Peach',
 		hex: '#ffe5b4',
 	},

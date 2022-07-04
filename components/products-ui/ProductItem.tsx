@@ -46,12 +46,13 @@ const ProductItem: FC<ProductItemProps> = ({
 		name,
 		image,
 		slug,
+		category,
 		cost: { price, currency },
 	},
 }) => {
 	const router = useRouter();
 
-	const route = () => router.push(`/product/${slug}`);
+	const route = () => router.push(`/products/${category}/${slug}`);
 
 	return (
 		<StyledCard>
