@@ -65,3 +65,7 @@ export interface IHeadphone extends IProduct {
 	specs: any;
 	variants: any;
 }
+
+export interface ProductProp {
+	product: IPhone | ITablet | ILaptop | IWatch | IHeadphone;
+}

@@ -13,7 +13,7 @@ interface Props {
 	name: string;
 }
 
-export const ProductSwiper: FC<Props> = ({ images, name }) => {
+const ProductSwiper: FC<Props> = ({ images, name }) => {
 	const [thumbsSwiper, setThumbsSwiper]: any = useState<typeof Swiper | null>(
 		null
 	);
@@ -67,3 +67,5 @@ export const ProductSwiper: FC<Props> = ({ images, name }) => {
 		</>
 	);
 };
+
+export default ProductSwiper;
